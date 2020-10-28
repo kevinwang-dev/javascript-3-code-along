@@ -28,6 +28,7 @@ Inside this loop, change the value of each property to 0
 function objectLooper(number) {
     for (let key in number) {
         // Code here
+        number[key] = 0;
     }
     return number;
 };
@@ -51,7 +52,8 @@ If a value is greater than 3,000,000 set it to 0
 
 function stateLooper(obj) {
 	for (let key in obj) {
-		// Code here
+        // Code here
+        if(obj[key] > 3000000) obj[key] = 0;
 	}
 	return obj;
 };
@@ -67,6 +69,10 @@ Once all falsy values and their properties are removed, return the object
 
 function cleanUser(obj) {
     // Code here
+    for(let key in obj){
+        if(!obj[key]) delete obj[key] //! reverse the truthy or falsey to the right of it
+    }
+    return obj;
 };
 
 
@@ -78,6 +84,12 @@ Return the updated user object
 */
 
 // Code here
+function maxedOut(user){
+    for(let key of user){
+        user[key] = 'Max';
+    }
+    return user
+}
 
 
 
@@ -306,6 +318,9 @@ You should not use the ES5 function declaration or function expression syntax in
 */
 
 // Code here
+const multiply = (num1, num2) => {
+    return num1 * num2;
+}
 
 
 
@@ -320,6 +335,7 @@ You should not use the ES5 function declaration or function expression syntax in
 
 // Code here
 
+const concatenate = (str1, str2) => str1 + str2;
 
 
 ////////// PROBLEM 17 //////////
@@ -333,7 +349,13 @@ You should not use the ES5 function declaration or function expression syntax in
 */
 
 // Code here
-
+const gemInfo = (gemType, gemSize, gemWeight) => {
+    return {
+        gemType,
+        gemSize,
+        gemWeight
+    }
+}
 
 
 ////////// PROBLEM 18 //////////
@@ -357,6 +379,14 @@ let jobs = [
 
 // Do not edit the code above.
 
+let identifier = () => {
+    let filterdArray = jobs.filter(function(element, index, array){
+        if(element.programmer){
+            return element
+        }
+    })
+    return filterdArray[0]
+}
 
 // Code here
 
