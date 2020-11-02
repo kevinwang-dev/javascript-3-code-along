@@ -12,10 +12,10 @@
 
 // Do not edit the code below.
 const number = {
-    age: 30,
-	score: 100,
-	length: 12,
-	year: 2016,
+  age: 30,
+  score: 100,
+  length: 12,
+  year: 2016,
 };
 
 // Do not edit the code above.
@@ -26,21 +26,18 @@ Inside this loop, change the value of each property to 0
 */
 
 function objectLooper(number) {
-    for (let key in number) {
-        // Code here
-        number[key] = 0;
-    }
-    return number;
-};
-
+  for (key in number) {
+    number[key] = 0;
+  }
+}
 
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
 const state = {
-    utah: 2942902,
-    texas: 26956958,
-    california: 38802500,
+  utah: 2942902,
+  texas: 26956958,
+  california: 38802500,
 };
 
 // Do not edit the code above.
@@ -50,14 +47,11 @@ Check each value inside the pre-written for in loop
 If a value is greater than 3,000,000 set it to 0
 */
 
-function stateLooper(obj) {
-	for (let key in obj) {
-        // Code here
-        if(obj[key] > 3000000) obj[key] = 0;
-	}
-	return obj;
-};
-
+function stateLooper(state) {
+  for (let key in state) {
+    if (state[key] > 3000000) state[key] = 0;
+  }
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -68,13 +62,14 @@ Once all falsy values and their properties are removed, return the object
 */
 
 function cleanUser(obj) {
-    // Code here
-    for(let key in obj){
-        if(!obj[key]) delete obj[key] //! reverse the truthy or falsey to the right of it
+  // Code here
+  for (let key in obj) {
+    if (Boolean(obj[key]) === false) {
+      delete key;
     }
     return obj;
-};
-
+  }
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -84,14 +79,12 @@ Return the updated user object
 */
 
 // Code here
-function maxedOut(user){
-    for(let key of user){
-        user[key] = 'Max';
-    }
-    return user
-}
-
-
+const maxedOut = (user) => {
+  for (let key in user) {
+    user[key] = "max";
+  }
+  return user;
+};
 
 ////////// OBJECT DESTRUCTURING //////////
 
@@ -103,33 +96,31 @@ This is the process called destructuring
 */
 
 // const numbers = {
-    // 	one: "1",
-    // 	two: "2",
-    // 	three: "3",
-    // };
-    
+// 	one: "1",
+// 	two: "2",
+// 	three: "3",
+// };
+
 // const { one, two, three } = numbers;
-    
-    
+
 ////////// PROBLEM 5 //////////
-    
+
 // Do not edit the code below.
 var animalCount = {
-    cats: 2,
-    dogs: 5,
-    mice: 0,
+  cats: 2,
+  dogs: 5,
+  mice: 0,
 };
 
 // Do not edit the code above.
-    
+
 /*
 Above you are given the object animalCount
 Destructure this object so that you have 3 distinct variables with values matching those of the properties from animalCount
 */
 
 // Code here
-
-
+const { cats, dogs, mice } = animalCount;
 
 ////////// PROBLEM 6 //////////
 
@@ -148,8 +139,11 @@ Set the value of students to be 24, mentors to be 3, and instructors to be 5
 */
 
 // Code here
-
-
+const { students, mentors, instructors } = {
+  students: 24,
+  mentors: 3,
+  instructors: 5,
+};
 
 ////////// PROBLEM 7 //////////
 
@@ -160,8 +154,11 @@ Use destructuring to assign the values of these properties to new variables
 */
 
 // Code here
-
-
+const languages = {
+  french: false,
+  english: true,
+  spanish: false,
+};
 
 ////////// PROBLEM 8 //////////
 
@@ -196,8 +193,6 @@ Subtract num2 from num1 and return the result
 
 // Code here
 
-
-
 ////////// PROBLEM 9 //////////
 
 /*
@@ -208,9 +203,13 @@ Using object destructuring, return the total sum of the counts of these animals
 */
 
 // Code here
-
-
-
+const zooAnimals = function (obj) {
+  let sum = 0;
+  for (let key in obj) {
+    sum += obj[key];
+  }
+  return sum;
+};
 ////////// PROBLEM 10 //////////
 
 /*
@@ -238,8 +237,6 @@ Title and name in this sentence should be replaced with the values of the destru
 
 // Code here
 
-
-
 ////////// PROBLEM 11 //////////
 
 /*
@@ -250,8 +247,7 @@ Return the value that is truthy
 */
 
 // Code here
-
-
+const truthyFalsy = function ({ number, string }) {};
 
 ////////// PROBLEM 12 //////////
 
@@ -265,8 +261,6 @@ Your function should also be contained within a single line
 
 // Code here
 
-
-
 ////////// PROBLEM 13 //////////
 
 /*
@@ -277,8 +271,7 @@ Your function should also be contained within a single line
 */
 
 // Code here
-
-
+const seven = () => 7;
 
 ////////// PROBLEM 14 //////////
 
@@ -290,23 +283,13 @@ You should not use the ES5 function declaration or function expression syntax in
 Your function should also be contained within a single line
 */
 
-/*
-function add(num1, num2) {
-    return num1 + num2;
-};
+const add = (num1, num2) => num1 + num2;
 
-function subtract(num1, num2) {
-    return num1 - num2;
-};
+const subtract = (num1, num2) => num1 - num2;
 
-function double(num) {
-    return num * 2;
-};
-*/
+const double = (num) => num * 2;
 
 // Code here
-
-
 
 ////////// PROBLEM 15 //////////
 
@@ -318,11 +301,7 @@ You should not use the ES5 function declaration or function expression syntax in
 */
 
 // Code here
-const multiply = (num1, num2) => {
-    return num1 * num2;
-}
-
-
+const multiply = (num1, num2) => num1 * num2;
 
 ////////// PROBLEM 16 //////////
 
@@ -337,7 +316,6 @@ You should not use the ES5 function declaration or function expression syntax in
 
 const concatenate = (str1, str2) => str1 + str2;
 
-
 ////////// PROBLEM 17 //////////
 
 /*
@@ -350,13 +328,12 @@ You should not use the ES5 function declaration or function expression syntax in
 
 // Code here
 const gemInfo = (gemType, gemSize, gemWeight) => {
-    return {
-        gemType,
-        gemSize,
-        gemWeight
-    }
-}
-
+  return {
+    gemType: gemType,
+    gemSize: gemSize,
+    gemWeight: gemWeight,
+  };
+};
 
 ////////// PROBLEM 18 //////////
 
@@ -372,25 +349,14 @@ You should not use a for loop, but should use the filter method instead
 
 // Do not edit the code below.
 let jobs = [
-	{ receptionist: "James" },
-	{ programmer: "Steve" },
-	{ designer: "Alicia" },
+  { receptionist: "James" },
+  { programmer: "Steve" },
+  { designer: "Alicia" },
 ];
 
 // Do not edit the code above.
 
-let identifier = () => {
-    let filterdArray = jobs.filter(function(element, index, array){
-        if(element.programmer){
-            return element
-        }
-    })
-    return filterdArray[0]
-}
-
 // Code here
-
-
 
 ////////// PROBLEM 19 //////////
 
@@ -404,8 +370,6 @@ You should not use a for loop, but should use the filter method instead
 */
 
 // Code here
-
-
 
 ////////// PROBLEM 20 //////////
 
@@ -422,8 +386,6 @@ You should not use a for loop, but should use the filter method instead
 
 // Code here
 
-
-
 ////////// PROBLEM 21 //////////
 
 /*
@@ -432,12 +394,6 @@ and return a new array with "Hello, " appended to the beginning of each name
 Make sure to use arrow functions combined with the map method    
 
 */
-
-const formalGreeting = names => {
-    // Code here
-}
-
-
 
 ////////// PROBLEM 22 //////////
 
@@ -448,6 +404,10 @@ Make sure to use arrow functions combined with the reduce method
 
 */
 
-const productOfArray = numbers => {
-    // Code here
-}
+const productOfArray = (numbers) => {
+  // Code here
+  const product = numbers.reduce((accum, cur) => {
+    return accum * cur;
+  }, 1);
+  return product;
+};
