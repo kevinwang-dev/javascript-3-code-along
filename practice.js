@@ -26,9 +26,13 @@ Inside this loop, change the value of each property to 0
 */
 
 function objectLooper(number) {
-  for (key in number) {
-    number[key] = 0;
+  for (let key in number) {
+    // Code here
+    for (let key in number) {
+      number[key] = 0;
+    }
   }
+  return number;
 }
 
 ////////// PROBLEM 2 //////////
@@ -47,10 +51,14 @@ Check each value inside the pre-written for in loop
 If a value is greater than 3,000,000 set it to 0
 */
 
-function stateLooper(state) {
-  for (let key in state) {
-    if (state[key] > 3000000) state[key] = 0;
+function stateLooper(obj) {
+  for (let key in obj) {
+    // Code here
+    for (let key in obj) {
+      if (obj[key] > 3000000) obj[key] = 0;
+    }
   }
+  return obj;
 }
 
 ////////// PROBLEM 3 //////////
@@ -64,11 +72,11 @@ Once all falsy values and their properties are removed, return the object
 function cleanUser(obj) {
   // Code here
   for (let key in obj) {
-    if (Boolean(obj[key]) === false) {
-      delete key;
+    if (!obj[key]) {
+      delete obj[key];
     }
-    return obj;
   }
+  return obj;
 }
 
 ////////// PROBLEM 4 //////////
@@ -79,7 +87,7 @@ Return the updated user object
 */
 
 // Code here
-const maxedOut = (user) => {
+const maxedOut = function (user) {
   for (let key in user) {
     user[key] = "max";
   }
@@ -120,6 +128,7 @@ Destructure this object so that you have 3 distinct variables with values matchi
 */
 
 // Code here
+
 const { cats, dogs, mice } = animalCount;
 
 ////////// PROBLEM 6 //////////
@@ -155,10 +164,12 @@ Use destructuring to assign the values of these properties to new variables
 
 // Code here
 const languages = {
-  french: false,
-  english: true,
+  french: true,
+  english: false,
   spanish: false,
 };
+
+const { french, english, spanish } = languages;
 
 ////////// PROBLEM 8 //////////
 
@@ -192,6 +203,10 @@ Subtract num2 from num1 and return the result
 */
 
 // Code here
+const subtraction = function (obj) {
+  const { num1, num2 } = obj;
+  return num1 - num2;
+};
 
 ////////// PROBLEM 9 //////////
 
@@ -203,13 +218,12 @@ Using object destructuring, return the total sum of the counts of these animals
 */
 
 // Code here
+
 const zooAnimals = function (obj) {
-  let sum = 0;
-  for (let key in obj) {
-    sum += obj[key];
-  }
-  return sum;
+  const { lion, tiger, bear } = obj;
+  return lion + tiger + bear;
 };
+
 ////////// PROBLEM 10 //////////
 
 /*
@@ -236,6 +250,9 @@ Title and name in this sentence should be replaced with the values of the destru
 */
 
 // Code here
+const greeting = function ({ name, title }) {
+  return `Hello, ${title} ${name}!`;
+};
 
 ////////// PROBLEM 11 //////////
 
@@ -247,7 +264,14 @@ Return the value that is truthy
 */
 
 // Code here
-const truthyFalsy = function ({ number, string }) {};
+
+const truthyFalsy = function ({ number, string }) {
+  if (Boolean(number) === true) {
+    return number;
+  } else if (Boolean(string) === true) {
+    return string;
+  }
+};
 
 ////////// PROBLEM 12 //////////
 
@@ -260,6 +284,7 @@ Your function should also be contained within a single line
 */
 
 // Code here
+const isGreaterThanTwenty = (x) => x > 20;
 
 ////////// PROBLEM 13 //////////
 
@@ -358,6 +383,10 @@ let jobs = [
 
 // Code here
 
+const identifier = (array) => {
+  return array.filter((item) => item.programmer);
+};
+
 ////////// PROBLEM 19 //////////
 
 /*
@@ -370,6 +399,9 @@ You should not use a for loop, but should use the filter method instead
 */
 
 // Code here
+const evens = (array) => {
+  return array.filter((item) => item % 2 === 0);
+};
 
 ////////// PROBLEM 20 //////////
 
@@ -385,6 +417,12 @@ You should not use a for loop, but should use the filter method instead
 */
 
 // Code here
+const startWithLetterA = (array) => {
+  const value = array.filter((item) => {
+    return item[0] === "A" || item[0] === "a";
+  });
+  return value;
+};
 
 ////////// PROBLEM 21 //////////
 
@@ -394,6 +432,10 @@ and return a new array with "Hello, " appended to the beginning of each name
 Make sure to use arrow functions combined with the map method    
 
 */
+
+const formalGreeting = (names) => {
+  // Code here
+};
 
 ////////// PROBLEM 22 //////////
 
@@ -406,8 +448,7 @@ Make sure to use arrow functions combined with the reduce method
 
 const productOfArray = (numbers) => {
   // Code here
-  const product = numbers.reduce((accum, cur) => {
-    return accum * cur;
+  return numbers.reduce(function (accu, curr) {
+    return accu * curr;
   }, 1);
-  return product;
 };
