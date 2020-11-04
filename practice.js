@@ -72,7 +72,7 @@ Once all falsy values and their properties are removed, return the object
 function cleanUser(obj) {
   // Code here
   for (let key in obj) {
-    if (!obj[key]) {
+    if (Boolean(obj[key]) === false) {
       delete obj[key];
     }
   }
@@ -383,8 +383,9 @@ let jobs = [
 
 // Code here
 
-const identifier = (array) => {
-  return array.filter((item) => item.programmer);
+const identifier = () => {
+  let result = jobs.filter((job) => job.programmer);
+  return result[0];
 };
 
 ////////// PROBLEM 19 //////////
